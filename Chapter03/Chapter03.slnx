@@ -1,3 +1,4 @@
 <Solution>
   <Project Path="Operators/Operators.csproj" />
+  <Project Path="SelectionStatements/SelectionStatements.csproj" Id="7f7d9b9b-a9eb-471a-b35d-3ee5969381df" />
 </Solution>
