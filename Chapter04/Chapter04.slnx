@@ -2,6 +2,8 @@
   <Project Path="AsyncConsole/AsyncConsole.csproj" Id="3eb6f458-6807-4f5c-825f-bd1a57f85bd6" />
   <Project Path="CalculatorLib/CalculatorLib.csproj" Id="c6211b7e-4bef-46af-9bfe-c53d6978ab31" />
   <Project Path="CalculatorLibUnitTests/CalculatorLibUnitTests.csproj" />
+  <Project Path="CallStackExceptionHandling/CallStackExceptionHandling.csproj" Id="6d12bf8d-6861-4eb6-84b2-b36b6e11267f" />
+  <Project Path="CallStackExceptionHandlingLib/CallStackExceptionHandlingLib.csproj" />
   <Project Path="Debugging/Debugging.csproj" Id="47e0ec65-08d7-4adf-b7f6-8d9f2e43848d" />
   <Project Path="HotReloading/HotReloading.csproj" Id="aeb0c453-0ad9-4374-8525-41a7cd6312f2" />
   <Project Path="WritingFunctions/WritingFunctions.csproj" />
