@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\PacktLibraryModern\PacktLibraryModern.csproj" />
     <ProjectReference Include="..\PacktLibraryNet2\PacktLibraryNet2.csproj" />
   </ItemGroup>
 
@@ -16,5 +17,8 @@
       <Static>True</Static>
     </Using>
   </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Dumpify" Version="0.7.0" />
+	</ItemGroup>
 
 </Project>
