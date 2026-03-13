@@ -1,10 +1,11 @@
 ﻿namespace Packt.Shared;
-public class Person : Object
+public partial class Person : Object
 {
     #region Fields: Ddata or state ofr this person.
     public string? Name;
     public DateTimeOffset Born;
-    public WondersOfTheAncientWorld FavoriteAncientWonder;
+    // This has been moved to PersonAutoGen.cs as a property.
+    //public WondersOfTheAncientWorld FavoriteAncientWonder;
     public WondersOfTheAncientWorld BucketList;
     public List<Person> Children = new();
     public const string Species = "Homo Sapiens";
@@ -73,5 +74,28 @@ public class Person : Object
     {
         name = Name;
         dob = Born;
+    }
+    public void Deconstruct(out string? name,
+        out DateTimeOffset dob,
+        out WondersOfTheAncientWorld fav)
+    {
+        name = Name;
+        dob = Born;
+        fav = FavoriteAncientWonder;
+    }
+    // Method with a local function.
+    public static int Factorial(int number)
+    {
+        if (number < 0)
+        {
+            throw new ArgumentException(
+                $"{nameof(number)} cannot be less than zero.");
+        }
+        return localFactorial(number);
+        int localFactorial(int localNumber)
+        {
+            if (localNumber == 0) return 1;
+            return localNumber * localFactorial(localNumber - 1);
+        }
     }
 }
