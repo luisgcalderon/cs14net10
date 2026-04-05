@@ -266,3 +266,23 @@ Console.WriteLine($"number1: {number1}, number2: {number2}");
 Console.WriteLine($"number 1 == number2: {number1 == number2}");
 
 Person p1 = new() { Name = "Kevin" };
+Person p2 = new()  { Name = "Kevin" };
+Console.WriteLine($"p1: {p1}, p2: {p2}");
+Console.WriteLine($"p1.Name: {p1.Name}, p2: {p2.Name}");
+Console.WriteLine($"p1 == p2: {p1 == p2}");
+
+Person p3 = p1;
+Console.WriteLine($"p3.Name: {p3.Name}");
+Console.WriteLine($"p1 == p3: {p1 == p3}");
+
+// string is the only class reference type implemented to
+// act like a value type for equality
+Console.WriteLine($"p1.Name: {p1.Name}, p2.Name: {p2.Name}");
+Console.WriteLine($"p1.Name == p2.Name: {p1.Name == p2.Name}");
+
+ImmutableAnimal oscar = new("Oscar", "Labrador");
+var (who, what) = oscar; // calls the deconstruct method.
+Console.WriteLine($"{who} is a {what}");
+
+Headset vp = new("Apple", "Vision Pro");
+Console.WriteLine($"{vp.ProductName} is made by {vp.Manufacturer}.");

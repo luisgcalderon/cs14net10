@@ -11,3 +11,6 @@ public record ImmutableVehicule
     public string? Color { get; init; }
     public string? Brand { get; init; } 
 }
+// Simpler syntax to define a record that auto-generates the 
+// properties, constructors, and deconstructors
+public record ImmutableAnimal(string Name, string Species);
