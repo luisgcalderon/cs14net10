@@ -1,4 +1,4 @@
-﻿//using Fruit = (string Name, int Number); // Aliasing a typle type
+//using Fruit = (string Name, int Number); // Aliasing a typle type
 using   Packt.Shared;
 //using Dumpify; // To use the Dump extension method.
 //ConfigureConsole("es-US");
@@ -286,3 +286,7 @@ Console.WriteLine($"{who} is a {what}");
 
 Headset vp = new("Apple", "Vision Pro");
 Console.WriteLine($"{vp.ProductName} is made by {vp.Manufacturer}.");
+Headset holo = new();
+Console.WriteLine($"{holo.ProductName} is mady by {holo.Manufacturer}.");
+Headset mq = new() { Manufacturer = "Meta", ProductName = "Quest 3" };
+Console.WriteLine($"{mq.ProductName} is made by {mq.Manufacturer}.");
