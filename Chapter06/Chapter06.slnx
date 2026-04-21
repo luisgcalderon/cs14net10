@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="PackLibrary/PackLibrary.csproj" />
+  <Project Path="PeopleApp/PeopleApp.csproj" />
+</Solution>
