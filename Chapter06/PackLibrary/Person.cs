@@ -6,6 +6,10 @@ public class Person
 	public string? Name { get; set; }
 	public DateTimeOffset Born { get; set; }
 	public List<Person> Children { get; set; } = new();
+	// Allow multiple spouses to be stored for a person.
+	public List<Person> Spouses { get; set; } = new();
+	// A read-only property to show if a person is a married to anyone.
+	public bool Married => Spouses.Count > 0;
 	#endregion
 	#region Methods
 	public void WriteToConsole() {
@@ -14,6 +18,41 @@ public class Person
 	public void WriteChildrenToConsole() {
 		string term = Children.Count == 1 ? "child" : "children";
         Console.WriteLine($"{Name} has {Children.Count} {term}.");
+	}
+	// Static method to marry two people.
+	public static void Marry(Person p1, Person p2)
+	{
+		ArgumentNullException.ThrowIfNull(p1);
+		ArgumentNullException.ThrowIfNull(p2);
+		if (p1.Spouses.Contains(p2) || p2.Spouses.Contains(p1))
+		{
+			throw new ArgumentException(
+				string.Format("{0} is already married to {1}.",
+				arg0: p1.Name, arg1: p2.Name));
+		}
+		p1.Spouses.Add(p2);
+		p2.Spouses.Add(p1);
+	}
+	// Instance method to marry other person.
+	public void Marry(Person partner)
+	{
+		Marry(this, partner); // "this" is the current person.
+	}
+	public void OutputSpouses()
+	{
+		if (Married)
+		{
+			string term = Spouses.Count == 1 ? "person" : "people";
+			Console.WriteLine($"{Name} is married to {Spouses.Count} {term}:");
+			foreach (Person spouse in Spouses)
+			{
+				Console.WriteLine($" {spouse.Name}");
+			}
+		}
+		else
+		{
+			Console.WriteLine($"{Name} is a singleton.");
+		}
 	}
 	#endregion
 }
