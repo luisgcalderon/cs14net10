@@ -3,8 +3,16 @@
 public class Person
 {
 	#region Properties
-	public string? Name { get; set; }
-	public DateTimeOffset Born { get; set; }
+	public string? Name
+	{
+		get => field;
+		set
+		{
+			if (string.IsNullOrEmpty(value)) throw new ArgumentNullException(nameof(value));
+			field = value;
+		}
+	}
+    public DateTimeOffset Born { get; set; }
 	public List<Person> Children { get; set; } = new();
 	// Allow multiple spouses to be stored for a person.
 	public List<Person> Spouses { get; set; } = new();
@@ -55,4 +63,28 @@ public class Person
 		}
 	}
 	#endregion
+
+	public static Person Procreate(Person p1, Person p2)
+	{
+		ArgumentNullException.ThrowIfNull(p1);
+		ArgumentNullException.ThrowIfNull(p2);
+		if (!p1.Spouses.Contains(p2) && !p2.Spouses.Contains(p1))
+		{
+			throw new ArgumentException(string.Format("{0} must be married to {1} to procreate with them.",
+				arg0: p1.Name, arg1: p2.Name));
+		}
+		Person baby = new()
+		{
+			Name = $"Baby of {p1.Name} and {p2.Name}",
+			Born = DateTimeOffset.Now
+		};
+		p1.Children.Add(baby);
+		p2.Children.Add(baby);
+		return baby;
+	}
+	// Instance method to "multiple".
+	public Person ProcreateWith(Person partner)
+	{
+		return Procreate(this, partner);
+	}
 }
