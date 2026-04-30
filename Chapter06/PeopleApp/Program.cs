@@ -1,4 +1,5 @@
 ﻿using Packt.Shared;
+using Dumpify; // To use the Dump extension method.
 Person harry = new()
 {
 	Name = "Harry",
@@ -15,13 +16,23 @@ Person zillah = new() { Name = "Zillah" };
 // Call the instance method to marry Lamech and Adah.
 lamech.Marry(adah);
 // Call the static method to marry Lamech and Zillah
-Person.Marry(lamech, zillah);
+//Person.Marry(lamech, zillah);
+// Person.Marry(lamech, zillah);
+if (lamech + zillah)
+{
+    Console.WriteLine($"{lamech.Name} and {zillah.Name} successfully got married.");
+}
 lamech.OutputSpouses();
 adah.OutputSpouses();
 zillah.OutputSpouses();
 // Call the instance method to make a baby.
 Person baby1 = lamech.ProcreateWith(adah);
 baby1.Name = "Jabal";
+// Use the * operator to "multiple".
+Person baby3 = lamech * adah;
+baby3.Name = "Jubal";
+Person baby4 = zillah * lamech;
+baby4.Name = "Naamah";
 Console.WriteLine($"{baby1.Name} was born on {baby1.Born}");
 // Call the static method to make a baby.
 Person baby2 = Person.Procreate(zillah, lamech);
@@ -35,3 +46,4 @@ for (int i = 0; i < lamech.Children.Count; i++)
 		arg0: lamech.Name, arg1: i,
 		arg2: lamech.Children[i].Name);
 }
+lamech.Dump();
